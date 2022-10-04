@@ -1,6 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\PageController;
+use App\Http\Controllers\HomeController;
+use Illuminate\Support\Facades\{Route, Auth};
 
 /*
 |--------------------------------------------------------------------------
@@ -19,4 +21,13 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::middleware('auth')->group(function () {
+
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+    // Admin
+    Route::prefix('admin')->middleware('admin')->as('admin.')->group(function () {
+        Route::resource('pages', PageController::class);
+    });
+});

@@ -32,7 +32,7 @@
 
             @yield('content')
 
-            @include('partials.footer')
+            {{-- @include('partials.footer') --}}
 
         </div>
     </main>
