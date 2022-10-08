@@ -12,7 +12,7 @@ class ChecklistController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @param  ChecklistGroup  $checklistGroup
+     * @param  ChecklistGroup $checklistGroup
      * @return \Illuminate\Http\Response
      */
     public function create(ChecklistGroup $checklistGroup)
@@ -23,8 +23,8 @@ class ChecklistController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  StoreChecklistRequest  $request
-     * @param  ChecklistGroup  $checklistGroup
+     * @param  StoreChecklistRequest $request
+     * @param  ChecklistGroup $checklistGroup
      * @return \Illuminate\Http\Response
      */
     public function store(StoreChecklistRequest $request, ChecklistGroup $checklistGroup)
@@ -37,8 +37,8 @@ class ChecklistController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  ChecklistGroup  $checklistGroup
-     * @param  Checklist  $checklist
+     * @param  ChecklistGroup $checklistGroup
+     * @param  Checklist $checklist
      * @return \Illuminate\Http\Response
      */
     public function edit(ChecklistGroup $checklistGroup, Checklist $checklist)
@@ -49,23 +49,23 @@ class ChecklistController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  StoreChecklistRequest  $request
-     * @param  ChecklistGroup  $checklistGroup
-     * @param  Checklist  $checklist
+     * @param  StoreChecklistRequest $request
+     * @param  ChecklistGroup $checklistGroup
+     * @param  Checklist $checklist
      * @return \Illuminate\Http\Response
      */
     public function update(StoreChecklistRequest $request, ChecklistGroup $checklistGroup, Checklist $checklist)
     {
         $checklist->update($request->validated());
 
-        return redirect()->route('home');
+        return redirect()->route('admin.checklist-groups.checklists.edit', [$checklistGroup, $checklist]);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  ChecklistGroup  $checklistGroup
-     * @param  Checklist  $checklist
+     * @param  ChecklistGroup $checklistGroup
+     * @param  Checklist $checklist
      * @return \Illuminate\Http\Response
      */
     public function destroy(ChecklistGroup $checklistGroup, Checklist $checklist)

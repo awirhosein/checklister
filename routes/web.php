@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\{Route, Auth};
-use App\Http\Controllers\Admin\{ChecklistGroupController, ChecklistController, PageController};
+use App\Http\Controllers\Admin\{ChecklistGroupController, ChecklistController, PageController, TaskController};
 
 /*
 |--------------------------------------------------------------------------
@@ -31,5 +31,6 @@ Route::middleware('auth')->group(function () {
         Route::resource('pages', PageController::class);
         Route::resource('checklist-groups', ChecklistGroupController::class)->except(['index', 'show']);
         Route::resource('checklist-groups.checklists', ChecklistController::class)->except(['index', 'show']);
+        Route::resource('checklists.tasks', TaskController::class);
     });
 });

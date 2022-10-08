@@ -25,7 +25,7 @@
                         @csrf
                         <div class="form-group">
                             <label class="form-control-label">{{ __('Name') }}</label>
-                            <input type="text" name="name" class="form-control" value="{{ old('name') }}" required>
+                            <input type="text" name="name" class="form-control" value="{{ old('name') }}">
                         </div>
 
                         <div class="mt-3">
