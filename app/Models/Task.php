@@ -15,5 +15,5 @@ class Task extends Model
      *
      * @var array
      */
-    protected $fillable = ['checklist_id', 'name', 'description'];
+    protected $fillable = ['checklist_id', 'name', 'description', 'position'];
 }

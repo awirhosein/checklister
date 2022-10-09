@@ -17,6 +17,8 @@
     <link href="{{ asset('dashboard-assets/css/nucleo-svg.css') }}" rel="stylesheet" />
     <!-- CSS Files -->
     <link id="pagestyle" href="{{ asset('dashboard-assets/css/argon-dashboard.css?v=2.0.4') }}" rel="stylesheet" />
+
+    <livewire:styles />
 </head>
 
 <body class="g-sidenav-show bg-gray-100">
@@ -47,6 +49,8 @@
     <script src="{{ asset('dashboard-assets/js/plugins/smooth-scrollbar.min.js') }}"></script>
     <script src="{{ asset('dashboard-assets/js/plugins/chartjs.min.js') }}"></script>
 
+    <livewire:scripts />
+    
     @yield('script')
     
     <script>
@@ -62,5 +66,8 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="{{ asset('dashboard-assets/js/argon-dashboard.min.js?v=2.0.4') }}"></script>
+
+    <script src="https://cdn.jsdelivr.net/gh/livewire/sortable@v0.x.x/dist/livewire-sortable.js"></script>
+    
 </body>
 </html>
