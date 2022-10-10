@@ -51,8 +51,6 @@
 
     <livewire:scripts />
     
-    @yield('script')
-    
     <script>
         var win = navigator.platform.indexOf('Win') > -1;
         if (win && document.querySelector('#sidenav-scrollbar')) {
@@ -68,6 +66,11 @@
     <script src="{{ asset('dashboard-assets/js/argon-dashboard.min.js?v=2.0.4') }}"></script>
 
     <script src="https://cdn.jsdelivr.net/gh/livewire/sortable@v0.x.x/dist/livewire-sortable.js"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/35.2.0/classic/ckeditor.js"></script>
+
+
+    @yield('script')
+
     
 </body>
 </html>
