@@ -28,7 +28,7 @@ Route::middleware('auth')->group(function () {
 
     // Admin
     Route::prefix('admin')->middleware('admin')->as('admin.')->group(function () {
-        Route::resource('pages', PageController::class);
+        Route::resource('pages', PageController::class)->only(['edit', 'update']);
         Route::resource('checklist-groups', ChecklistGroupController::class)->except(['index', 'show']);
         Route::resource('checklist-groups.checklists', ChecklistController::class)->except(['index', 'show']);
         Route::resource('checklists.tasks', TaskController::class);

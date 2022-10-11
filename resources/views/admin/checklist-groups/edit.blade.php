@@ -4,16 +4,6 @@
     <div class="row justify-content-center mt-4">
         <div class="col-lg-12 mb-lg-0 mb-4">
 
-            @if ($errors->any())
-                <div class="alert alert-danger border-0 small" role="alert">
-                    <ul class="mb-0">
-                        @foreach ($errors->all() as $error)
-                            <li class="text-white">{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
-
             <div class="card">
                 <div class="card-header pb-0 p-3">
                     <div class="d-flex justify-content-between">
@@ -21,6 +11,21 @@
                     </div>
                 </div>
                 <div class="card-body">
+
+                    @if ($errors->any())
+                        <div class="alert alert-danger border-0 small" role="alert">
+                            <ul class="mb-0">
+                                @foreach ($errors->all() as $error)
+                                    <li class="text-white">{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
+                    @if (session()->has('message'))
+                        <div class="alert alert-success border-0 small text-white" role="alert">{{ session('message') }}</div>
+                    @endif
+
                     <form action="{{ route('admin.checklist-groups.update', $checklistGroup) }}" method="POST">
                         @csrf
                         @method('PUT')
@@ -38,7 +43,7 @@
             </div>
 
             <form action="{{ route('admin.checklist-groups.destroy', $checklistGroup) }}" method="POST">
-                @csrf 
+                @csrf
                 @method('DELETE')
 
                 <button type="submit" class="btn btn-danger btn-sm mt-4" onclick="return confirm('{{ __('Are you sure?') }}')">{{ __('Delete This Checklist Group') }}</button>

@@ -32,7 +32,7 @@ class ChecklistController extends Controller
     {
         $checklist->update($request->validated());
 
-        return redirect()->route('admin.checklist-groups.checklists.edit', [$checklistGroup, $checklist]);
+        return redirect()->route('admin.checklist-groups.checklists.edit', [$checklistGroup, $checklist])->with('checklist-message', 'Success');
     }
 
     public function destroy(ChecklistGroup $checklistGroup, Checklist $checklist): RedirectResponse

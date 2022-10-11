@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
+use App\Models\Page;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class UserSeeder extends Seeder
+class PagesSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,11 +15,7 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        User::create([
-            'name' => 'admin',
-            'email' => 'admin@gmail.com',
-            'password' => bcrypt('123456'),
-            'is_admin' => 1
-        ]);
+        Page::create(['title' => 'Welcome', 'content' => 'Welcome']);
+        Page::create(['title' => 'Get Consultation', 'content' => 'Get Consultation']);
     }
 }

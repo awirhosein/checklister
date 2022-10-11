@@ -8,37 +8,41 @@
             <div class="card">
                 <div class="card-header pb-0 p-3">
                     <div class="d-flex justify-content-between">
-                        <h6 class="mb-0">{{ __('Edit Task') }}</h6>
+                        <h6 class="mb-0">{{ __('Edit Page') }}</h6>
                     </div>
                 </div>
-                <div class="card-body">
 
-                    @if ($errors->storeTask->any())
+                <div class="card-body">
+                    @if ($errors->any())
                         <div class="alert alert-danger border-0 small" role="alert">
                             <ul class="mb-0">
-                                @foreach ($errors->storeTask->all() as $error)
+                                @foreach ($errors->all() as $error)
                                     <li class="text-white">{{ $error }}</li>
                                 @endforeach
                             </ul>
                         </div>
                     @endif
 
-                    <form action="{{ route('admin.checklists.tasks.update', [$checklist, $task]) }}" method="POST">
+                    @if (session()->has('message'))
+                        <div class="alert alert-success border-0 small text-white" role="alert">{{ session('message') }}</div>
+                    @endif
+
+                    <form action="{{ route('admin.pages.update', $page) }}" method="POST">
                         @csrf
                         @method('PUT')
 
                         <div class="form-group">
-                            <label>{{ __('Name') }}</label>
-                            <input type="text" name="name" class="form-control" value="{{ old('name', $task->name) }}">
+                            <label>{{ __('Title') }}</label>
+                            <input type="text" name="title" class="form-control" value="{{ old('title', $page->title) }}">
                         </div>
 
                         <div class="form-group">
-                            <label>{{ __('Description') }}</label>
-                            <textarea name="description" class="form-control" rows="5" id="task-editor">{{ old('description', $task->description) }}</textarea>
+                            <label>{{ __('Content') }}</label>
+                            <textarea name="content" class="form-control" rows="5" id="task-editor">{{ old('content', $page->content) }}</textarea>
                         </div>
 
                         <div class="mt-3">
-                            <button type="submit" class="btn bg-gradient-primary px-5 mb-0">{{ __('Save Task') }}</button>
+                            <button type="submit" class="btn bg-gradient-primary px-5 mb-0">{{ __('Save Page') }}</button>
                         </div>
                     </form>
                 </div>
