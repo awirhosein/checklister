@@ -24,7 +24,8 @@ Auth::routes();
 
 Route::middleware('auth')->group(function () {
 
-    Route::get('/home', [HomeController::class, 'index'])->name('home');
+    Route::get('/welcome', [\App\Http\Controllers\PageController::class, 'welcome'])->name('welcome');
+    Route::get('/consultation', [\App\Http\Controllers\PageController::class, 'consultation'])->name('consultation');
 
     // Admin
     Route::prefix('admin')->middleware('admin')->as('admin.')->group(function () {
