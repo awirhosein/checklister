@@ -39,7 +39,7 @@
         </div>
     </main>
 
-    {{-- @include('partials.setting-sidebar') --}}
+    @include('partials.setting-sidebar')
 
 
     <!--   Core JS Files   -->
