@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignId('checklist_id')->constrained();
             $table->string('name');
             $table->text('description');
+            $table->unsignedInteger('position');
             $table->timestamps();
             $table->softDeletes();
         });

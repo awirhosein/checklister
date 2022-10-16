@@ -16,6 +16,8 @@ return new class extends Migration
         Schema::create('checklists', function (Blueprint $table) {
             $table->id();
             $table->foreignId('checklist_group_id')->constrained('checklist_groups');
+            $table->foreignId('checklist_id')->nullable()->constrained();
+            $table->foreignId('user_id')->nullable()->constrained();
             $table->string('name');
             $table->timestamps();
             $table->softDeletes();

@@ -78,9 +78,32 @@
                 @endforeach
 
                 <hr class="horizontal dark mb-0">
+            @else
+                @foreach (\App\Models\ChecklistGroup::with(['checklists' => function ($query) { $query->whereNull('user_id'); }])->get() as $group)
+                    <li class="nav-item">
+                        <div class="d-flex justify-content-between">
+                            <a class="nav-link">
+                                <span class="nav-link-text ms-1">{{ $group->name }}</span>
+                            </a>
+                        </div>
+
+                        <div id="group-{{ $group->id }}" class="accordion-collapse" data-bs-parent="#sidenav-collapse-main">
+                            @foreach ($group->checklists as $checklist)
+                                <a class="nav-link py-0 ms-3" href="{{ route('user.checklists.show', $checklist) }}">
+                                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                                        <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+                                    </div>
+                                    <span class="nav-link-text ">{{ $checklist->name }}</span>
+                                </a>
+                            @endforeach
+                        </div>
+                    </li>
+                @endforeach
+
+                <hr class="horizontal dark mb-0">
 
             @endif
-           
+
             <li class="nav-item">
                 <span class="nav-link font-weight-bolder ms-1">{{ __('Other') }}</span>
             </li>

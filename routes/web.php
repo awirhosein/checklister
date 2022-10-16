@@ -1,8 +1,8 @@
 <?php
 
-use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\{Route, Auth};
 use App\Http\Controllers\Admin\{ChecklistGroupController, ChecklistController, PageController, TaskController};
+use App\Http\Controllers\User\ChecklistController as UserChecklistController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +26,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/welcome', [\App\Http\Controllers\PageController::class, 'welcome'])->name('welcome');
     Route::get('/consultation', [\App\Http\Controllers\PageController::class, 'consultation'])->name('consultation');
+    Route::get('/checklists/{checklist}', [UserChecklistController::class, 'show'])->name('user.checklists.show');
 
     // Admin
     Route::prefix('admin')->middleware('admin')->as('admin.')->group(function () {
