@@ -67,6 +67,7 @@
 
     <script src="https://cdn.jsdelivr.net/gh/livewire/sortable@v0.x.x/dist/livewire-sortable.js"></script>
     <script src="https://cdn.ckeditor.com/ckeditor5/35.2.0/classic/ckeditor.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 
 
     @yield('script')

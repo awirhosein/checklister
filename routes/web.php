@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\{Route, Auth};
-use App\Http\Controllers\Admin\{ChecklistGroupController, ChecklistController, PageController, TaskController};
 use App\Http\Controllers\User\ChecklistController as UserChecklistController;
+use App\Http\Controllers\Admin\{ChecklistGroupController, ChecklistController, PageController, TaskController};
 
 /*
 |--------------------------------------------------------------------------
@@ -15,9 +15,7 @@ use App\Http\Controllers\User\ChecklistController as UserChecklistController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::redirect('/', 'welcome');
 
 Auth::routes();
 
