@@ -20,8 +20,7 @@ Route::redirect('/', 'welcome');
 Auth::routes();
 
 
-Route::middleware('auth')->group(function () {
-
+Route::middleware(['auth', 'save_last_action_timestamp'])->group(function () {
     Route::get('/welcome', [\App\Http\Controllers\PageController::class, 'welcome'])->name('welcome');
     Route::get('/consultation', [\App\Http\Controllers\PageController::class, 'consultation'])->name('consultation');
     Route::get('/checklists/{checklist}', [UserChecklistController::class, 'show'])->name('user.checklists.show');
